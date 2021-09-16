@@ -22,15 +22,15 @@ export function TransactionsTable() {
           {transactions.map(transaction => {
             return (
               <tr key={transaction.id}>
-                <td className='transaction-title'>{transaction.title}</td>
-                <td className={transaction.type}>
+                <td data-cy='transaction-title'>{transaction.title}</td>
+                <td className={transaction.type} data-cy="transaction-amount">
                   {new Intl.NumberFormat('pt-BR', {
                     style: 'currency',
                     currency: 'BRL'
                   }).format(transaction.amount)}
                 </td>
-                <td className='transaction-category'>{transaction.category}</td>
-                <td className='transaction-date'>{new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}</td>
+                <td data-cy='transaction-category'>{transaction.category}</td>
+                <td data-cy='transaction-date'>{new Intl.DateTimeFormat('pt-BR').format(new Date(transaction.createdAt))}</td>
               </tr>
             )
           })}

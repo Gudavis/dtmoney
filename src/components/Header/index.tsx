@@ -10,7 +10,11 @@ export function Header({ onNewTransactionModalOpen }: HeaderProps) {
     <Container>
       <Content>
         <img src={logoImg} alt="dt money" />
-        <button type="button" onClick={onNewTransactionModalOpen}>
+        <button
+          type="button"
+          onClick={onNewTransactionModalOpen}
+          data-cy="new-transaction"
+        >
           Nova transação
         </button>
       </Content>

@@ -56,14 +56,14 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
       <Container onSubmit={handleCreateNewTransaction}>
         <h2>Cadastrar Transação</h2>
         <input
-          id='title'
+          data-cy='title'
           placeholder="Título"
           value={title}
           onChange={event => { setTitle(event.target.value); }}
         />
 
         <input
-          id='amount'
+          data-cy='amount'
           type='number'
           placeholder="Valor"
           value={amount === 0 ? '' : amount}
@@ -72,7 +72,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
 
         <TransactionTypeContainer>
           <RadioBox
-            id='deposit'
+            data-cy='deposit'
             type="button"
             onClick={() => { setType('deposit') }}
             isActive={type === 'deposit'}
@@ -83,7 +83,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
           </RadioBox>
 
           <RadioBox
-            id='withdraw'
+            data-cy='withdraw'
             type="button"
             onClick={() => { setType('withdraw') }}
             isActive={type === 'withdraw'}
@@ -95,12 +95,17 @@ export function NewTransactionModal({ isOpen, onRequestClose }: NewTransactionMo
         </TransactionTypeContainer>
 
         <input
-          id='category'
+          data-cy='category'
           placeholder="Categoria"
           value={category}
           onChange={event => { setCategory(event.target.value); }}
         />
-        <button type="submit">Cadastrar</button>
+        <button
+          type="submit"
+          data-cy="submit-new-transaction"
+        >
+          Cadastrar
+        </button>
       </Container>
     </Modal>
   )
